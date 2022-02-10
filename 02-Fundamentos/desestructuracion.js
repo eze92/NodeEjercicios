@@ -1,5 +1,5 @@
 
-
+//creo el objeto 
 const deadpool = {
     nombre: 'Wade',
     apellido: 'Winston',
