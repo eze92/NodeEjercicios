@@ -25,7 +25,7 @@ const salarios = [
 ];
 
 const getEmpleado = ( id ) => {
-
+//la promesa es una funcion
     const promesa = new Promise ((resolve,reject) => {
         //funcion de busqueda en el arreglo
         const empleado = empleados.find( e => e.id === id )?.nombre;
@@ -40,7 +40,25 @@ const getEmpleado = ( id ) => {
      return promesa;
 }
 
-const id = 4;
+const getSalario = (id) => {
+
+    const promesa = new Promise((resolve,reject) =>{
+        
+        const salario = salarios.find(s => s.id === id)?.salario;
+
+        if(salario){
+            resolve(salario);
+        }
+        else{
+            reject(`No existe el salario con id ${id}`)
+        }
+    });
+    return promesa;
+}
+
+
+const id = 1;
+/*
 //el then ejecuta la funcion que quiero utilizar cuando se 
 //resuelve correctamente
 
@@ -49,3 +67,25 @@ const id = 4;
 getEmpleado(id)
     .then (empleado => console.log(empleado))
     .catch(error => console.error(error));
+
+
+getSalario(id)
+    .then (salario => console.log(salario))
+    .catch(error => console.log(error));
+    */
+
+ //la forma para unirlo todo y quede como el codigo del ejercicio
+ //anterior pero aun se puede mejorar con otro metodo 
+getEmpleado(id)
+    .then ( empleado => {
+
+        getSalario(id)
+            .then( salario => {
+                console.log('El emppleado',empleado,'tiene un salario de:',salario);
+            })
+            .catch(error => console.error(error));
+
+    })
+    .catch(error => console.error(error));
+
+    
