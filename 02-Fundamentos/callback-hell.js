@@ -53,6 +53,8 @@ const getSalario = (id, callback) =>{
 
 const id = 1;
 
+// ACA se produce el callback hell al no podes distinguir bien
+//el codigo al estar un callbak dentro de otro
 getEmpleado( id, ( error, empleado ) => {
 
     if ( error ) {
