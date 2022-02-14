@@ -27,7 +27,7 @@ const salarios = [
 const getEmpleado = ( id ) => {
 //la promesa es una funcion
     const promesa = new Promise ((resolve,reject) => {
-        //funcion de busqueda en el arreglo
+        //funcion de busqueda en el arreglo , busco el nombre
         const empleado = empleados.find( e => e.id === id )?.nombre;
         
         if ( empleado ) {
