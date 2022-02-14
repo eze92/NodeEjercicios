@@ -57,7 +57,7 @@ const getSalario = (id) => {
 }
 
 
-const id = 1;
+const id = 3;
 /*
 //el then ejecuta la funcion que quiero utilizar cuando se 
 //resuelve correctamente
@@ -76,6 +76,7 @@ getSalario(id)
 
  //la forma para unirlo todo y quede como el codigo del ejercicio
  //anterior pero aun se puede mejorar con otro metodo 
+ /*forma incorrecta de hacer una promosa en cadena
 getEmpleado(id)
     .then ( empleado => {
 
@@ -87,5 +88,18 @@ getEmpleado(id)
 
     })
     .catch(error => console.error(error));
+*/
 
+//uso una variable nombre para luego utilizarla debajo para la funcion de flecha
+let nombre;
+
+getEmpleado(id)
+    .then(empleado =>  {
+        nombre = empleado;
+        return getSalario(id) 
+        //necesito agregar el return para poder concatenar debajo el then
+    })
+    .then(salario => console.log('El empleado:',nombre,'tiene un salario',salario) )
+    .catch(error => console.log(error));
+    //uso el catch de forma global
     
