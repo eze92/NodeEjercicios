@@ -24,5 +24,8 @@ console.log('===================');
     fs.writeFile(`tabla-${base}.txt`, salida,(err)=> {
         if (err) throw err;
         console.log(`tabla-${base} creada con exito`);
+
+    //tambien puedo usar el fs.writefileasyc (`tabla-${base}.txt`, salida,) lo que cambia es que si sucede un error necesito 
+    //atraparlo con un try and catch   
     });
 //}
