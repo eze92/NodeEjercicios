@@ -16,8 +16,8 @@ console.log('===================');
    // console.log(`${base} x ${i} = ${base *  i}`);
    //el dato de la salida
     salida += `${base} x ${i} = ${base *  i}\n`;
-    console.log(salida);
     }
+    console.log(salida);
 
     //el callback lo saco de la documentacion del servicio para cuando hay error
     //archivo a crear, salida , error

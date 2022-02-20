@@ -1,14 +1,14 @@
 
-//const multiplicar = () => {
-    
-console.clear();
-console.log('===================');
-console.log('Tabla del 5');
-console.log('===================');
+//exporto la funcion crear archivo desde multiplocar 
+const{crearArchivo} = require('./helpers/multiplicar');
 
-    const  base = 5 ;
+ 
+console.clear();
+
+
+const  base = 2 ;
   
-    for ( let i = 1 ; i <= 10 ; i++  ){
-    console.log(`${base} x ${i} = ${base *  i}`);
-    }
-//}
+
+crearArchivo(base)
+    .then(nombreArchivo => console.log(nombreArchivo,'creado'))
+    .catch(error => console.log(error));
