@@ -20,7 +20,8 @@ const crearArchivo = async(base = 5) =>{
             //se cambio el writeFile por writeFileSync misma funcion pero necesito
             //atrapar el error con try an catch
         fs.writeFileSync(`tabla-${base}.txt`, salida) ;
-        
+
+        //debo retornar siempre lo de la funcion 
         return `tabla-${base} creada con exito`;
     }catch(error){
         throw error;
