@@ -1,7 +1,7 @@
 
 //exporto la funcion crear archivo desde multiplocar 
 const { argv } = require('process');
-const{crearArchivo} = require('./helpers/multiplicar');
+const{crearArchivo} = require('../helpers/multiplicar');
 //como importar esta en la documentacion
 
 console.clear();
