@@ -4,17 +4,18 @@
 
 const {crearArchivo} = require('./helpers/multiplicar');
 const argv = require('./config/yargs');
+const colors = require('colors');
+
 
                  
 console.clear();
 
 //para ver como funciona yars
 //console.log(argv);
-
-console.log('base:yargs',argv.b);
+//console.log('base:yargs',argv.b);
   
 
 crearArchivo(argv.b, argv.l)
-    .then(nombreArchivo => console.log(nombreArchivo,'creado'))
+    .then(nombreArchivo => console.log(nombreArchivo.red,'creado'.yellow))
     .catch(error => console.log(error));
 

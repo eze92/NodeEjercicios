@@ -1,4 +1,4 @@
-//como importar esta en la documentacion
+//como importar esta en la documentacion , en este caso importo el paquete yargs
 const argv = require('yargs')
 //opciones que va tener para ingresar por consola
         .option('b',{

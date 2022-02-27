@@ -1,4 +1,6 @@
 const fs = require ('fs');
+const colors = require('colors');
+
 
 //si no mando la base por parametro por defecto es 5
 const crearArchivo = async(base = 5 , listar= false) =>{
@@ -10,14 +12,14 @@ const crearArchivo = async(base = 5 , listar= false) =>{
         for ( let i = 1 ; i <= 10 ; i++  ){
             // console.log(`${base} x ${i} = ${base *  i}`);
             //el dato de la salida
-             salida += `${base} x ${i} = ${base *  i}\n`;
+             salida += `${base} ${'x'.green} ${i} ${'='.green} ${base *  i} \n`;
         }
 
         //toma true por defecto
         if(listar){
-            console.log('===================');
-            console.log(`Tabla del : ${base}`);
-            console.log('===================');
+            console.log('==================='.cyan);
+            console.log('Tabla del :' ,(`${base}`).yellow);
+            console.log('==================='.cyan);
 
             console.log(salida);
         }

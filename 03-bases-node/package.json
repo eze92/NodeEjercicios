@@ -4,6 +4,7 @@
   "description": "Es una simple tabla de multiplicar con archivo de texto",
   "main": "app.js",
   "dependencies": {
+    "colors": "^1.4.0",
     "yargs": "^17.3.1"
   },
   "devDependencies": {},
