@@ -8,11 +8,14 @@ const crearArchivo = async(base = 5 , listar= false, hasta = 10) =>{
     try{
 
         let salida = '';
+        let consola = '';
 
         for ( let i = 1 ; i <= hasta ; i++  ){
             // console.log(`${base} x ${i} = ${base *  i}`);
-            //el dato de la salida
-             salida += `${base} ${'x'.green} ${i} ${'='.green} ${base *  i} \n`;
+            //el dato de la salida sin colores para que se guarde bien el txt
+             salida += `${base} x ${i} =  ${base *  i} \n`;
+            //a imprimer por consola con los colores
+             consola += `${base} ${'x'.green} ${i} ${'='.green} ${base *  i} \n`;
         }
 
         //toma true por defecto
@@ -21,7 +24,7 @@ const crearArchivo = async(base = 5 , listar= false, hasta = 10) =>{
             console.log('Tabla del :' ,(`${base}`).yellow);
             console.log('==================='.cyan);
 
-            console.log(salida);
+            console.log(consola);
         }
     
             //se cambio el writeFile por writeFileSync misma funcion pero necesito
