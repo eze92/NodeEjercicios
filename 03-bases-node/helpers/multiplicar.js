@@ -3,7 +3,7 @@ const colors = require('colors');
 
 
 //si no mando la base por parametro por defecto es 5
-const crearArchivo = async(base = 5 , listar= false, hasta = false) =>{
+const crearArchivo = async(base = 5 , listar= false, hasta = 10) =>{
 
     try{
 
