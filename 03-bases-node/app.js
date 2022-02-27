@@ -15,7 +15,7 @@ console.clear();
 //console.log('base:yargs',argv.b);
   
 
-crearArchivo(argv.b, argv.l)
+crearArchivo(argv.b, argv.l, argv.h)
     .then(nombreArchivo => console.log(nombreArchivo.red,'creado'.yellow))
     .catch(error => console.log(error));
 

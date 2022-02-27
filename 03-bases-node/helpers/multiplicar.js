@@ -3,13 +3,13 @@ const colors = require('colors');
 
 
 //si no mando la base por parametro por defecto es 5
-const crearArchivo = async(base = 5 , listar= false) =>{
+const crearArchivo = async(base = 5 , listar= false, hasta = false) =>{
 
     try{
 
         let salida = '';
 
-        for ( let i = 1 ; i <= 10 ; i++  ){
+        for ( let i = 1 ; i <= hasta ; i++  ){
             // console.log(`${base} x ${i} = ${base *  i}`);
             //el dato de la salida
              salida += `${base} ${'x'.green} ${i} ${'='.green} ${base *  i} \n`;
