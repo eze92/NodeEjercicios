@@ -1,0 +1,15 @@
+{
+  "name": "03-bases-node",
+  "version": "1.0.0",
+  "description": "Es una simple tabla de multiplicar con archivo de texto",
+  "main": "app.js",
+  "dependencies": {
+    "yargs": "^17.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ezequiel Ledesma",
+  "license": "MIT"
+}

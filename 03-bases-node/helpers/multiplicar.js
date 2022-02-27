@@ -1,12 +1,9 @@
 const fs = require ('fs');
 
 //si no mando la base por parametro por defecto es 5
-const crearArchivo = async(base = 5) =>{
+const crearArchivo = async(base = 5 , listar= false) =>{
 
     try{
-        console.log('===================');
-        console.log(`Tabla del : ${base}`);
-        console.log('===================');
 
         let salida = '';
 
@@ -15,8 +12,16 @@ const crearArchivo = async(base = 5) =>{
             //el dato de la salida
              salida += `${base} x ${i} = ${base *  i}\n`;
         }
-        console.log(salida);
-         
+
+        //toma true por defecto
+        if(listar){
+            console.log('===================');
+            console.log(`Tabla del : ${base}`);
+            console.log('===================');
+
+            console.log(salida);
+        }
+    
             //se cambio el writeFile por writeFileSync misma funcion pero necesito
             //atrapar el error con try an catch
         fs.writeFileSync(`tabla-${base}.txt`, salida) ;
