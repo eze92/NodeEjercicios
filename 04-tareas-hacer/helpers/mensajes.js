@@ -3,6 +3,9 @@ require('colors');
 //funcion para mostrar el menu
 const mostrarMenu = () =>{
 
+    return new Promise ((resolve) =>{
+
+        
     console.clear();
     console.log('======================='.green);
     console.log('Seleccione una opcion'.green);
@@ -19,28 +22,38 @@ const mostrarMenu = () =>{
     //para mostrar y leer informacion por consola uso una constante
 
     const readline = require('readline').createInterface({
-        input : process.stdin,
+        input: process.stdin,
         output: process.stdout
-    })
+    });
     //question muestra la informacion al usuario con la pregunta, el callback es la respuesta
     //a la pregunta
-    readline.question('Seleccione una opcion:' , (opt) => {
+    readline.question('Seleccione una opción: ', (opt) => {
         readline.close();
+        resolve(opt);
     })
 
+    });
 }
+
+
 
 //funcion para pausar la consola e ingresar ENTER para continuar
 const pausa = () => {
 
-    const readline = require('readline').createInterface({
-        input : process.stdin,
-        output: process.stdout
-    })
+    return new Promise ((resolve) => {
 
-    readline.question(`Presione ${'ENTER'.green} para continuar ` , (opt) => {
-        readline.close();
-    })
+        const readline = require('readline').createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
+    
+        readline.question(`\nPresione ${ 'ENTER'.green } para continuar\n`, (opt) => {
+            readline.close();
+            resolve();// no necesito resoltar nada por eso solo resolve
+        })
+        
+    });
+
 
 }
 
