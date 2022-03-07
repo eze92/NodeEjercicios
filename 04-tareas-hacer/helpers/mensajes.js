@@ -36,7 +36,6 @@ const mostrarMenu = () =>{
 }
 
 
-
 //funcion para pausar la consola e ingresar ENTER para continuar
 const pausa = () => {
 

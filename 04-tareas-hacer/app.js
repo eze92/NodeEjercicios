@@ -1,6 +1,10 @@
+//primero las importaciones despues la locales que uno hace
+
 require('colors');
 
-const { mostrarMenu, pausa } = require('./helpers/mensajes')
+const { inquirerMenu } = require('./helpers/inquirer');
+
+//const { mostrarMenu, pausa } = require('./helpers/mensajes')
 
 
 console.clear();
@@ -9,8 +13,8 @@ console.clear();
 const main = async () => {
     console.log('hola');
 
-    mostrarMenu();
-    pausa();
+    //mostrarMenu();
+   // pausa();
 
     let opt = '';
 
@@ -19,11 +23,11 @@ const main = async () => {
     //el ciclo
     do{
         //para que se espere a que termine de resolver el menu en caso de ser 0 sale de la app
-        opt = await mostrarMenu();
+        opt = await inquirerMenu();
         
-        if(opt !== '0') {
+      /*  if(opt !== '0') {
             await pausa();
-        }
+        }*/
     }
     while (opt != '0');
 
