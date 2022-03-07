@@ -7,7 +7,18 @@ const preguntas = [
         type: 'list',
         name:'opcion',
         message: '¿Que desea hacer?',
-        choices: ['opt1','opt2','opt3']
+        choices: [
+            //convierto en objeto json las opciones del arreglo
+            {
+                value: '1',
+                name: '1. Crear tarea'
+            },
+            {
+                value: '2',
+                name: '2. Listar tarea'
+            },
+            
+        ]
 
     }
 ];
