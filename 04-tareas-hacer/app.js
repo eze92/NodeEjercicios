@@ -2,7 +2,7 @@
 
 require('colors');
 
-const { inquirerMenu } = require('./helpers/inquirer');
+const { inquirerMenu,pausa } = require('./helpers/inquirer');
 
 //const { mostrarMenu, pausa } = require('./helpers/mensajes')
 
@@ -11,7 +11,7 @@ console.clear();
 
 //creo una funcion main como lo haria en java y invocarla debajo
 const main = async () => {
-    console.log('hola');
+  //  console.log('hola');
 
     //mostrarMenu();
    // pausa();
@@ -28,10 +28,12 @@ const main = async () => {
       /*  if(opt !== '0') {
             await pausa();
         }*/
+        await pausa();
+
     }
     while (opt != '0');
 
-
+  
 }
 //uso el main para ejecutar todo el codigo
 main();
