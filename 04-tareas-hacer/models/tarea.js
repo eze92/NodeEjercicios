@@ -1,5 +1,19 @@
+//v4 crea el id segun la documentacion
+const {v4: uuidv4} = require('uuid');
+
 class Tarea {
 
+    id = '';
+    desccripcion = '';
+    completadoEn = null
+
+    constructor( desccripcion){
+
+        this.id = uuidv4(); //crea el id de forma asincrona
+        this.desccripcion = desccripcion;
+        this.completadoEn = null;
+
+    }
 }
 
 
