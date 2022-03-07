@@ -3,11 +3,12 @@
 require('colors');
 
 const { inquirerMenu,pausa } = require('./helpers/inquirer');
+const Tareas = require('./models/Tareas');
 
 //const { mostrarMenu, pausa } = require('./helpers/mensajes')
 
 
-console.clear();
+//console.clear();
 
 //creo una funcion main como lo haria en java y invocarla debajo
 const main = async () => {
@@ -22,12 +23,13 @@ const main = async () => {
     //evalua la condicion, si la condicion del while el true vuelve a ejeutar 
     //el ciclo
     do{
-        //para que se espere a que termine de resolver el menu en caso de ser 0 sale de la app
-        opt = await inquirerMenu();
+    //para que se espere a que termine de resolver el menu en caso de ser 0 sale de la app
+       opt = await inquirerMenu();
         
       /*  if(opt !== '0') {
             await pausa();
         }*/
+
         await pausa();
 
     }
