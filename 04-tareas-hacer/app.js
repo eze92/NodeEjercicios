@@ -25,6 +25,7 @@ const main = async () => {
     //el ciclo
     do{
     //para que se espere a que termine de resolver el menu en caso de ser 0 sale de la app
+    //imprime el menu
        opt = await inquirerMenu();
         
       /*  if(opt !== '0') {
