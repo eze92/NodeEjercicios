@@ -2,7 +2,7 @@
 
 require('colors');
 
-const { inquirerMenu,pausa } = require('./helpers/inquirer');
+const { inquirerMenu,pausa,leerInput } = require('./helpers/inquirer');
 const Tareas = require('./models/Tareas');
 
 //const { mostrarMenu, pausa } = require('./helpers/mensajes')
@@ -18,6 +18,7 @@ const main = async () => {
    // pausa();
 
     let opt = '';
+    const tareas = new Tareas();
 
     //agrego el do - while para que se ejecute al menos 1 vez y luego 
     //evalua la condicion, si la condicion del while el true vuelve a ejeutar 
@@ -29,6 +30,20 @@ const main = async () => {
       /*  if(opt !== '0') {
             await pausa();
         }*/
+        switch (opt) {
+          //los cases son la opciones
+          case '1':
+            //crear opcion
+              const descripcion = await leerInput('Descripcion: ');
+              tareas.crearTarea( descripcion);
+            break;
+
+          case '2':
+              console.log(tareas._listado);
+            break;
+        
+         
+        }  
 
         await pausa();
 

@@ -71,8 +71,29 @@ const pausa = async()=>{
 
 }
 
+const leerInput = async (message) => {
+    const question = [
+        {
+            type : 'input',
+            name : 'descripcion',
+            message , // es redundante si al mandar el parametro con el mismo nombre en em6
+            validate ( value) { //para validar que ingrese una opcion
+                if(value.lenght === 0){
+                    return 'Por favor ingrese un valor';
+                }
+                return true;
+            }
+        }
+    ];
+    //uso el question
+    // descructuro para tomar como valor la descripcion del objeto
+    const {descripcion} = await inquirer.prompt(question);
+    return descripcion;
+}
+
 //exporto como objeto
 module.exports = {
     inquirerMenu,
-    pausa
+    pausa,
+    leerInput
 }
