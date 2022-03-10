@@ -78,7 +78,8 @@ const leerInput = async (message) => {
             name : 'descripcion',
             message , // es redundante si al mandar el parametro con el mismo nombre en em6
             validate ( value) { //para validar que ingrese una opcion
-                if(value.lenght === 0){
+                if(value.length === 0){
+                    
                     return 'Por favor ingrese un valor';
                 }
                 return true;
