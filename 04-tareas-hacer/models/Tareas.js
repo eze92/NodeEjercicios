@@ -8,7 +8,23 @@ const Tarea = require("./tarea");
 class Tareas{
 
 //voy a crear un objeto de tareas listado en vez de un arreglo para mejor manejo
-    _listado = {} 
+    _listado = {};
+
+    //funcion para pasar objeto a arreglo
+    get listadoArray(){
+
+        const listado = [];
+        //me devuelve un arreglo de todas las llaves funcion java script
+        Object.keys(this._listado).forEach(key => {
+            //inserto el listado en el arreglo 
+            const tarea = this._listado[key];
+            listado.push (tarea);
+           
+        }); 
+
+        return listado;
+
+    }
 
     constructor(){
         this._listado = {};
