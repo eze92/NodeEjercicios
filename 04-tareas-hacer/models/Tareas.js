@@ -37,7 +37,13 @@ class Tareas{
  
         //para agregar nuevas tareas al objeto _listado
         this._listado[tarea.id] = tarea;
+    }
 
+    cargarTareasFromArray (tareas = [] ) {
+
+        tareas.forEach( tarea => {
+            this._listado[tarea.id] = tarea ;
+        });
     }
 
 }

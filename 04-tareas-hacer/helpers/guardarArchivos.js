@@ -9,7 +9,7 @@ const guardarDB = (data) =>{
 
 const leerDB = () =>{
     
-    //verifico si existe o no el archivo
+    //verifico si no existe  el archivo
     if(!fs.existsSync(archivo)){
         return null ;
     }
@@ -18,11 +18,8 @@ const leerDB = () =>{
    //convierto el string a objeto json
     const data = JSON.parse(info);
 
-    console.log(data);
-
-    return null;
-
-
+   // console.log(data);
+    return data;
 }
 
 module.exports = {

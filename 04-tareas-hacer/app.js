@@ -23,7 +23,12 @@ const main = async () => {
 
     const tareasDB = leerDB();
 
-    await pausa();
+    if (tareasDB){ //cargas tareas
+      tareas.cargarTareasFromArray(tareasDB);
+
+    }
+
+   // await pausa();
 
 
 
@@ -53,7 +58,7 @@ const main = async () => {
          
         }  
         //tengo que cometar el comando para no perder lo guardado en la db
-        //guardarDB(tareas.listadoArray)
+        guardarDB(tareas.listadoArray)
 
         await pausa();
 
