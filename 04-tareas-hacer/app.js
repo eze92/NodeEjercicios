@@ -2,6 +2,7 @@
 
 require('colors');
 
+const { guardarDB } = require('./helpers/guardarArchivos');
 const { inquirerMenu,pausa,leerInput } = require('./helpers/inquirer');
 const Tareas = require('./models/Tareas');
 
@@ -45,6 +46,8 @@ const main = async () => {
         
          
         }  
+        //tengo que cometar el comando para no perder lo guardado en la db
+        guardarDB(tareas.listadoArray)
 
         await pausa();
 

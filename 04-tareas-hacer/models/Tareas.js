@@ -14,7 +14,8 @@ class Tareas{
     get listadoArray(){
 
         const listado = [];
-        //me devuelve un arreglo de todas las llaves funcion java script
+        //me devuelve un arreglo de todas las llaves funcion java script puro
+        //el foreach lo uso para recorrer todas las claves
         Object.keys(this._listado).forEach(key => {
             //inserto el listado en el arreglo 
             const tarea = this._listado[key];
