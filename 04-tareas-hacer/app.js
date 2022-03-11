@@ -2,7 +2,7 @@
 
 require('colors');
 
-const { guardarDB } = require('./helpers/guardarArchivos');
+const { guardarDB ,leerDB } = require('./helpers/guardarArchivos');
 const { inquirerMenu,pausa,leerInput } = require('./helpers/inquirer');
 const Tareas = require('./models/Tareas');
 
@@ -20,6 +20,12 @@ const main = async () => {
 
     let opt = '';
     const tareas = new Tareas();
+
+    const tareasDB = leerDB();
+
+    await pausa();
+
+
 
     //agrego el do - while para que se ejecute al menos 1 vez y luego 
     //evalua la condicion, si la condicion del while el true vuelve a ejeutar 
@@ -47,7 +53,7 @@ const main = async () => {
          
         }  
         //tengo que cometar el comando para no perder lo guardado en la db
-        guardarDB(tareas.listadoArray)
+        //guardarDB(tareas.listadoArray)
 
         await pausa();
 
