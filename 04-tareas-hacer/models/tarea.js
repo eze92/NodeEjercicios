@@ -4,13 +4,13 @@ const {v4: uuidv4} = require('uuid');
 class Tarea {
 
     id = '';
-    desccripcion = '';
+    descripcion = '';
     completadoEn = null
 
-    constructor( desccripcion){
+    constructor( descripcion){
 
         this.id = uuidv4(); //crea el id de forma asincrona
-        this.desccripcion = desccripcion;
+        this.descripcion = descripcion;
         this.completadoEn = null;
 
     }

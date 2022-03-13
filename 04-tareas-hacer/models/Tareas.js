@@ -45,6 +45,23 @@ class Tareas{
             this._listado[tarea.id] = tarea ;
         });
     }
+    
+    listadoCompleto() {
+        //llamo a la funcion de arriba get para reutilizarla
+        //el segundo argumento del forEach es el indice
+        console.log();
+        this.listadoArray.forEach((tarea, id) =>{
+
+            const indice = `${id + 1 }`.green ;
+            const {descripcion,completadoEn} = tarea; //se iguala asi porque la descricion y completado viene de la tarea
+           
+            const estado = (completadoEn) ? 'Completada'.green :  'Pendiente'.red;
+            
+
+            console.log(`${indice} ${descripcion} :: ${estado}` );
+        });
+        
+    }
 
 }
 
