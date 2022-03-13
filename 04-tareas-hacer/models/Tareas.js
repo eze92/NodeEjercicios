@@ -31,6 +31,14 @@ class Tareas{
         this._listado = {};
     }
 
+    borrarTarea (id = ''){
+        //si existe el id
+        if (this._listado [id]){
+            delete this._listado[id]; //elimino la propiedad del objeto
+        }
+    }
+
+
     crearTarea( descripcion = ''){
         //creo una instancia de la tarea 
         const tarea = new Tarea( descripcion);
