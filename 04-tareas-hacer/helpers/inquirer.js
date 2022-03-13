@@ -92,9 +92,37 @@ const leerInput = async (message) => {
     return descripcion;
 }
 
+const listadoTareasBorrar = async (tareas = []) =>{
+
+//map retorna un nuevo arreglo pero transforma los valores del arreglo actual 
+//hijos a lo que yo quiera
+
+    const choices = tareas.map((tareas,id) =>{
+
+        const idx = `${id +1 }.green`;
+
+        return {
+            value: tarea.id,
+            name: `${idx} ${tareas.descripcion}`
+        }
+    });
+    const preguntas = [
+        {
+            type : 'list',
+            name : 'id',
+            message: 'Borrar',
+            choices
+        }
+    ]
+    //de la misma forma que esta realizado al principio
+    const {id} = await inquirer.prompt (preguntas);
+    return id;
+}
+
 //exporto como objeto
 module.exports = {
     inquirerMenu,
     pausa,
-    leerInput
+    leerInput,
+    listadoTareasBorrar
 }
