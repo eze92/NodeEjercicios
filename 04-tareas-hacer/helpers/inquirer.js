@@ -31,7 +31,7 @@ const preguntas = [
             },
             {
                 value: '6',
-                name: `${'6.'.green} Borar tarea`
+                name: `${'6.'.green} Borrar tarea`
             },
             {
                 value: '0',
@@ -121,7 +121,7 @@ const listadoTareasBorrar = async (tareas = []) =>{
         }
     ]
     //de la misma forma que esta realizado al principio
-    const {id} = await inquirer.prompt (preguntas);
+    const {id} = await inquirer.prompt(preguntas);
     return id;
 }
 const confirmar = async(message) => {
@@ -167,7 +167,7 @@ const mostrarListadoCheckList = async (tareas = []) =>{
             }
         ]
         //de la misma forma que esta realizado al principio
-        const {ids} = await inquirer.prompt (pregunta);
+        const {ids} = await inquirer.prompt(pregunta);
         return ids;
     }
 

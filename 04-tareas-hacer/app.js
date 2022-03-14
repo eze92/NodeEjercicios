@@ -66,17 +66,17 @@ const main = async () => {
 
            case '5': //completado o pendiente 
              const ids = await mostrarListadoCheckList(tareas.listadoArray);
-              console.log(ids);
+             tareas.toogleCompletadas( ids);
             break;    
 
           case '6': //borrar
             const id = await listadoTareasBorrar(tareas.listadoArray);  //lista tareas a borrar  
+           
             if ( id !== '0') {
-
                const ok = await confirmar('¿Esta Seguro?'); //pregunta antes de borrar
               if (ok) {
                  tareas.borrarTarea(id);
-                  console.log('Tarea borrada');
+                 console.log('Tarea borrada');
               }
             }
 

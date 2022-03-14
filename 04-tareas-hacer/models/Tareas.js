@@ -86,7 +86,7 @@ class Tareas{
                 //mostrar completadas
                 if (completadoEn){
                     contador += 1;
-                    console.log(`${ (contador + '.').toString().green} ${descripcion} :: ${estado}` );
+                    console.log(`${ (contador + '.').toString().green} ${descripcion} :: ${completadoEn.green}` );
                 }
             }else{
                 //mostrar pendientes
@@ -99,6 +99,15 @@ class Tareas{
         });        
 
     }
+    toogleCompletadas(ids = [] ){
+        ids.forEach ( id => {
+            const tarea = this._listado[id];
+            if(!tarea.completadoEn){
+                tarea.completadoEn = new Date().toISOString()
+            }
+        })
+    }
+
 
 }
 
