@@ -106,6 +106,12 @@ const listadoTareasBorrar = async (tareas = []) =>{
             name: `${idx} ${tarea.descripcion}`
         }
     });
+    //para que sea primera opcion del arreglo
+    choices.unshift({
+        value: '0',
+        name: '0.'.green + 'Cancelar'
+    })
+
     const preguntas = [
         {
             type : 'list',
@@ -119,7 +125,7 @@ const listadoTareasBorrar = async (tareas = []) =>{
     return id;
 }
 const confirmar = async(message) => {
-//en base a la documentacion del inquirer
+//en base a la documentacion del inquirer genero pregunta de borrado
     const question = [
         {
             type: 'confirm',
