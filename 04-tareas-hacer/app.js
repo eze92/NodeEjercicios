@@ -69,6 +69,9 @@ const main = async () => {
 
           case '6':
             const id = await listadoTareasBorrar(tareas.listadoArray);    
+           // const ok = await confirmar('¿Esta Seguro?');
+
+
            break;   
         
          
