@@ -118,7 +118,7 @@ const listadoTareasBorrar = async (tareas = []) =>{
     const {id} = await inquirer.prompt (preguntas);
     return id;
 }
-/*const confirmar = async(message) => {
+const confirmar = async(message) => {
 //en base a la documentacion del inquirer
     const question = [
         {
@@ -132,13 +132,13 @@ const listadoTareasBorrar = async (tareas = []) =>{
    return ok;
     
 
-}*/
+}
 
 //exporto como objeto
 module.exports = {
     inquirerMenu,
     pausa,
     leerInput,
-    listadoTareasBorrar/*,
-    confirmar*/
+    listadoTareasBorrar,
+    confirmar
 }

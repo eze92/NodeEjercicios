@@ -3,7 +3,7 @@
 require('colors');
 
 const { guardarDB ,leerDB } = require('./helpers/guardarArchivos');
-const { inquirerMenu,pausa,leerInput,listadoTareasBorrar } = require('./helpers/inquirer');
+const { inquirerMenu,pausa,leerInput,listadoTareasBorrar,confirmar } = require('./helpers/inquirer');
 const Tareas = require('./models/Tareas');
 
 //const { mostrarMenu, pausa } = require('./helpers/mensajes')
@@ -69,7 +69,7 @@ const main = async () => {
 
           case '6':
             const id = await listadoTareasBorrar(tareas.listadoArray);    
-           // const ok = await confirmar('¿Esta Seguro?');
+            const ok = await confirmar('¿Esta Seguro?');
 
 
            break;   
