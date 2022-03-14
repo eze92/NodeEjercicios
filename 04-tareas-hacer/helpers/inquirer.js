@@ -27,7 +27,7 @@ const preguntas = [
             },
             {
                 value: '5',
-                name: `${'5.'.green} Completas tarea(s)`
+                name: `${'5.'.green} Completar tarea(s)`
             },
             {
                 value: '6',
@@ -106,7 +106,7 @@ const listadoTareasBorrar = async (tareas = []) =>{
             name: `${idx} ${tarea.descripcion}`
         }
     });
-    //para que sea primera opcion del arreglo
+    //para que sea primera opcion del arreglo en la seleccion
     choices.unshift({
         value: '0',
         name: '0.'.green + 'Cancelar'
@@ -140,11 +140,43 @@ const confirmar = async(message) => {
 
 }
 
+
+const mostrarListadoCheckList = async (tareas = []) =>{
+
+    //map retorna un nuevo arreglo pero transforma los valores del arreglo actual 
+    //hijos a lo que yo quiera
+    
+        const choices = tareas.map((tarea,id) =>{
+    
+            const idx = `${id +1 }`.green;
+    
+            return {
+                value: tarea.id,
+                name: `${idx} ${tarea.descripcion}`,
+                //condicion para que aparezca seleccionado la tarea completada
+                checked: (tarea.completadoEn) ? true : false
+            }
+        });
+    
+        const pregunta = [
+            {
+                type : 'checkbox',
+                name : 'ids',
+                message: 'Selecciones',
+                choices
+            }
+        ]
+        //de la misma forma que esta realizado al principio
+        const {ids} = await inquirer.prompt (pregunta);
+        return ids;
+    }
+
 //exporto como objeto
 module.exports = {
     inquirerMenu,
     pausa,
     leerInput,
     listadoTareasBorrar,
-    confirmar
+    confirmar,
+    mostrarListadoCheckList
 }
