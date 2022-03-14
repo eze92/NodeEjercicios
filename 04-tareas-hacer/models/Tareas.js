@@ -102,10 +102,21 @@ class Tareas{
     toogleCompletadas(ids = [] ){
         ids.forEach ( id => {
             const tarea = this._listado[id];
-            if(!tarea.completadoEn){
+            if(!tarea.completadoEn){ 
+                //toISOString le agrega la fecha en string
                 tarea.completadoEn = new Date().toISOString()
             }
-        })
+        });
+        
+        //para desmarcar/cambiar tareas ya completadas 
+        this.listadoArray.forEach ( tarea => {
+
+            if (!ids.includes(tarea.id)){
+                this._listado[tarea.id];
+                tarea.completadoEn = null;
+            }
+        });   
+
     }
 
 
