@@ -13,3 +13,8 @@ Options:
                                                           [number] [default: 10]
 ```                                          
                                      
+
+# Paquetes npm usados
+
++ colors : Colores en la consola
++ yargs : Manejo de opciones customizadas para la consola
