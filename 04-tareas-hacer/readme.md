@@ -1,6 +1,6 @@
 # Notas:
 
-Menu de la aplicacion de Listar Tareas la cual guardara las mismas de forma percistente en un archivo JSON
+Menu de la aplicacion de Listar Tareas la cual guardara las mismas de forma persistente en un archivo JSON
 
 
 ```
@@ -17,3 +17,9 @@ Seleccione una opcion
   6. Borrar tarea
   0. Salir
 ```
+
+# Paquetes npm usados
+
++ colors : Colores en la consola
++ inquirer : Manejo de consola interactiva
++ uuid : Generador de id unico
