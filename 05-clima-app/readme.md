@@ -22,4 +22,4 @@ Seleccione una opcion
 
 + colors : Colores en la consola
 + inquirer : Manejo de consola interactiva
-+ uuid : Generador de id unico
++ axios : Para peticiones http
