@@ -1,10 +1,14 @@
+require('dotenv').config()
 const { leerInput, inquirerMenu, pausa } = require("./helpers/inquirer");
 const Busquedas = require("./models/Busquedas");
+
+console.log(process.env)
 
 const main = async() => {
 
     //creo instancia de la clase 
     const busquedas = new Busquedas();
+
 
     let opt = 0;
 
@@ -52,4 +56,4 @@ const main = async() => {
     while ( opt != 0);
 }
 
-main();
+//main();
