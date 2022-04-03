@@ -28,3 +28,5 @@ Seleccione una opcion
 
 # Para los datos del mapa : MapBox
 https://docs.mapbox.com/api/search/geocoding/
+
+#Para probar peticiones api https://reqres.in/

@@ -35,9 +35,16 @@ class Busquedas {
 
         //console.log(lugar);
         // const resp = await axios.get('https://api.mapbox.com/geocoding/v5/mapbox.places/buenos%20aires.json?limit=5&proximity=ip&types=place%2Cpostcode%2Caddress&language=es&access_token=pk.eyJ1IjoicGVwZTE5OTIiLCJhIjoiY2wxamR3Y3ZqMXFydjNqcDhiMmVxbWk3YSJ9.ksvvk12OOoodL7GUb9WtAw');
-         console.log(resp.data);
+        //console.log(resp.data);
+        return resp.data.features.map( lugar =>({
+            //returno un objeto de forma inmplicita
+            id : lugar.id,
+            nombre : lugar.place_name,
+            ln : lugar.center[0],
+            lat : lugar.center[1]
+        }));
 
-            return []; //retorar los lugares
+           // return []; //retorar los lugares
         }
         catch (error){
             return []; 

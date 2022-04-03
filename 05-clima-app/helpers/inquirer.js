@@ -75,18 +75,18 @@ const leerInput = async (message) => {
     return descripcion;
 }
 
-const listadoTareasBorrar = async (tareas = []) =>{
+const listarLugares = async (lugares = []) =>{
 
 //map retorna un nuevo arreglo pero transforma los valores del arreglo actual 
 //hijos a lo que yo quiera
 
-    const choices = tareas.map((tarea,id) =>{
+    const choices = lugares.map((lugar,id) =>{
 
         const idx = `${id +1 }`.green;
 
         return {
-            value: tarea.id,
-            name: `${idx} ${tarea.descripcion}`
+            value: lugar.id,
+            name: `${idx} ${lugar.nombre}`
         }
     });
     //para que sea primera opcion del arreglo en la seleccion
@@ -99,7 +99,7 @@ const listadoTareasBorrar = async (tareas = []) =>{
         {
             type : 'list',
             name : 'id',
-            message: 'Borrar',
+            message: 'Seleccione lugar:',
             choices
         }
     ]
@@ -159,7 +159,7 @@ module.exports = {
     inquirerMenu,
     pausa,
     leerInput,
-    listadoTareasBorrar,
+    listarLugares,
     confirmar,
     mostrarListadoCheckList
 }
