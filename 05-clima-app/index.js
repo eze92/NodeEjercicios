@@ -2,7 +2,6 @@ require('dotenv').config()
 const { leerInput, inquirerMenu, pausa } = require("./helpers/inquirer");
 const Busquedas = require("./models/Busquedas");
 
-console.log(process.env)
 
 const main = async() => {
 
@@ -56,4 +55,4 @@ const main = async() => {
     while ( opt != 0);
 }
 
-//main();
+main();
