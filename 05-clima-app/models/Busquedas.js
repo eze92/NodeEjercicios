@@ -40,8 +40,8 @@ class Busquedas {
             //returno un objeto de forma inmplicita
             id : lugar.id,
             nombre : lugar.place_name,
-            ln : lugar.center[0],
-            lat : lugar.center[1]
+            lat : lugar.center[0],
+            lng : lugar.center[1]
         }));
 
            // return []; //retorar los lugares

@@ -24,16 +24,17 @@ const main = async() => {
 
                 /// Seleccionar el lugar 
                 const id = await listarLugares(lugares);
-                console.log(lugares)
+                const lugarSeleccionado = lugares.find(l => l.id === id);
+               // console.log(lugarSeleccionado);
 
                 //Clima 
 
                 //Mostrar resultados
 
                 console.log('\n Informacion de la ciudad \n'.green);
-                console.log('Ciudad:',);
-                console.log('Latitud:',);
-                console.log('Longitud:',);
+                console.log('Ciudad:', lugarSeleccionado.nombre);
+                console.log('Latitud:', lugarSeleccionado.lat);
+                console.log('Longitud:',lugarSeleccionado.lng);
                 console.log('Mínima:',);
                 console.log('Máxima:',);
 
