@@ -20,9 +20,10 @@ Seleccione una opcion
 
 # Paquetes npm usados
 
-+ colors : Colores en la consola
-+ inquirer : Manejo de consola interactiva
-+ axios : Para peticiones http
++ colors : Colores en la consola  https://www.npmjs.com/package/colors
++ inquirer : Manejo de consola interactiva   https://www.npmjs.com/package/inquirer
++ axios : Para peticiones http  https://canvas.instructure.com/login/canvas
++ dotenv : Para utilizar archivos como variable de entorno https://www.npmjs.com/package/dotenv
 
 
 # Para los datos del mapa : MapBox
