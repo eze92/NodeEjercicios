@@ -1,11 +1,25 @@
+const fs = require('fs');
+
 const axios = require('axios');
 
 class Busquedas {
 
     historial = [];
+    dbPath = './db/database.json';
 
     constructor() {
         //Leer DB si existe
+        this.leerDB();
+    }
+
+    get historialCapitalizado(){
+        //Capitalizar cada palabra
+        return this.historial.map(lugar=>{
+            let palabras = lugar.split(' ');
+            palabras = palabras.map (palabra => palabra[0].toUpperCase() + palabra.substring(1));
+
+            return palabras.join(' ');
+        });
     }
 
     //returno un objeto
@@ -94,10 +108,35 @@ class Busquedas {
         //TODO: prevenir duplicados
         if (this.historial.includes(lugar.toLocaleLowerCase())) {
             return;
-        } //agrega las ciudades al arreglo
+        } 
+        //mantener solo 6 lugares en el historial
+        this.historial = this.historial.splice(0,5);
+        //agrega las ciudades al arreglo
         this.historial.unshift(lugar.toLocaleLowerCase());
+        
 
         //Grabar en DB
+        this.guardarDB();
+    }
+    guardarDB(){
+        const payload = {
+            historial : this.historial
+        };
+
+        fs.writeFileSync(this.dbPath,JSON.stringify(payload))
+    }
+    leerDB(){
+        //Debe existir ...
+        if ( !fs.existsSync(this.dbPath)) {
+            return;
+        }
+        //leer json
+        const info = fs.readFileSync(this.dbPath,{encoding: 'utf-8'});
+        const data = JSON.parse(info);
+
+        this.historial = data.historial;
+
+        //const info
     }
 
     
