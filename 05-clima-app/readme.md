@@ -34,4 +34,5 @@ https://docs.mapbox.com/api/search/geocoding/
 # Para los datos del clima : OpenWeather
 https://openweathermap.org/
 
-# Para probar peticiones api https://reqres.in/
+# Para probar peticiones 
+api https://reqres.in/
