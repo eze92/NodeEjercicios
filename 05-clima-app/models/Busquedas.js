@@ -2,7 +2,7 @@ const axios = require('axios');
 
 class Busquedas {
 
-    historial = ['Buenos Aires','La Plata','San Luis'];
+    historial = [];
 
     constructor() {
         //Leer DB si existe
@@ -70,6 +70,7 @@ class Busquedas {
             const instance =  axios.create ({
                 baseURL : `https://api.openweathermap.org/data/2.5/weather`,
                 //desectructuro para poder usar la latitus y long como parametro
+                // ... son parametros de descanso
                 params: {...this.paramsOpenWeather,lat,lon }
             });
 
@@ -87,6 +88,16 @@ class Busquedas {
         catch(error){
             console.log(error);
         }
+    }
+
+    agregarHistorial (lugar = ''){
+        //TODO: prevenir duplicados
+        if (this.historial.includes(lugar.toLocaleLowerCase())) {
+            return;
+        } //agrega las ciudades al arreglo
+        this.historial.unshift(lugar.toLocaleLowerCase());
+
+        //Grabar en DB
     }
 
     
