@@ -36,7 +36,7 @@ class Busquedas {
         return {
             //los nombres provienen de 'https://api.openweathermap.org/data/2.5/weather?lat=9.93333&lon=-84.08333&appid=72a76b93d642985cf53433234958ef79&units=metric&lang=es'
             'appid': process.env.OPENWEATHER_KEY,
-            'limit':5,
+            'limit':5, //limite de lugares a traer
             'units' : 'metric',
             'lang': 'es'
         }
