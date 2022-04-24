@@ -13,8 +13,8 @@ app.use( express.static('public'));
 
 
 app.get('/', (req, res) => {
-  res.send('Hola mundo');
-})
+  res.render('home')
+});
 
 
 /* esta parte no se ejecuta al estar el contenido estatico
