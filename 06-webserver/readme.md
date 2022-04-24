@@ -23,6 +23,7 @@ Seleccione una opcion
 # Paquetes npm usados
 
 + express : Para crear el servidor https://www.npmjs.com/package/express
++ handlebars : Para renderizar pagina  https://www.npmjs.com/package/handlebars como estoy usando express necesita instalar hbs https://github.com/pillarjs/hbs
 
 
 Sitio Oficial de express 

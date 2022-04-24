@@ -2,9 +2,20 @@ const express = require('express')
 const app = express()
 const port = 8080;
 
+
+
+app.set('view engine', 'hbs');
+
+
 //Servir contenido estatico todo lo de la carpeta public
 
 app.use( express.static('public'));
+
+
+app.get('/', (req, res) => {
+  res.send('Hola mundo');
+})
+
 
 /* esta parte no se ejecuta al estar el contenido estatico
 app.get('/', (req, res) => {
@@ -12,14 +23,14 @@ app.get('/', (req, res) => {
 })*/
 
 //send es lo que devuelve la ruta
-/*app.get('/hola-mundo', (req, res) => {
+  /*app.get('/hola-mundo', (req, res) => {
     res.send('Hola mundo en su respectiva ruta')
   })*/
-  app.get('/generic', (req, res) => {
+app.get('/generic', (req, res) => {
     res.sendFile(__dirname + '/public/generic.html');
   })
 
-  app.get('/elements', (req, res) => {
+app.get('/elements', (req, res) => {
     res.sendFile(__dirname + '/public/elements.html');
   })
 
