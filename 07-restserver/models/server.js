@@ -20,7 +20,9 @@ class Server {
 
     routes() {
         this.app.get('/api', (req, res) => {
-            res.send('Hello World')
+            res.json({
+                msg : 'get API'
+            });
         });
     }
 
