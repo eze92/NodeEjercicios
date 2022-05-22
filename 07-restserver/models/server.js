@@ -5,11 +5,21 @@ class Server {
     constructor() {
         this.app = express();
         this.port = process.env.PORT;
+
+        //Middlewares : Funciones que siempre se ejecutan al levantar el servidor
+        this.middlewares();
+        //Rutas de mi aplicacion
         this.routes();
     }
 
+    middlewares(){
+        //use palabra clave para decir que es un middlewares
+        //Directorio Publico
+        this.app.use(express.static('public'));
+    }
+
     routes() {
-        this.app.get('/', (req, res) => {
+        this.app.get('/api', (req, res) => {
             res.send('Hello World')
         });
     }
