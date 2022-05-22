@@ -19,9 +19,28 @@ class Server {
     }
 
     routes() {
+        // leer read 
         this.app.get('/api', (req, res) => {
             res.json({
                 msg : 'get API'
+            });
+        });
+        //actualizar update 
+        this.app.put('/api', (req, res) => {
+            res.json({
+                msg : 'put API'
+            });
+        });
+        // crear nuevo recurso create
+        this.app.post('/api', (req, res) => {
+            res.json({
+                msg : 'post API'
+            });
+        });
+        //borrar pero no necesariamente de la db , delete
+        this.app.delete('/api', (req, res) => {
+            res.json({
+                msg : 'delete API'
             });
         });
     }
