@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require ('cors')
 
 class Server {
 
@@ -13,12 +14,17 @@ class Server {
     }
 
     middlewares(){
-        //use palabra clave para decir que es un middlewares
+        // "use" palabra clave para decir que es un middlewares
+
+        //CORS
+        this.app.use(cors());
+    
         //Directorio Publico
         this.app.use(express.static('public'));
     }
 
     routes() {
+        //endpoints
         // leer read 
         this.app.get('/api', (req, res) => {
             res.json({
@@ -33,7 +39,7 @@ class Server {
         });
         // crear nuevo recurso create
         this.app.post('/api', (req, res) => {
-            res.json({
+            res.status(201).json({
                 msg : 'post API'
             });
         });
