@@ -1,13 +1,7 @@
+//importaciones de terceros siempre primero
 require('dotenv').config();
+const Server = require('./models/server');
 
-const express = require('express')
-const app = express()
-const port = process.env.PORT;
+const server = new Server();
 
-app.get('/', function (req, res) {
-  res.send('Hello World')
-})
-
-app.listen(port, () =>{
-    console.log('Servidor corriendo en el puerto', port);
-});
+server.listen();
