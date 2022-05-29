@@ -8,8 +8,37 @@ const { response} = require ('express');
     });
 }
 
+const usuariosPut = (req, res = response) => {
+    res.json({
+        msg: 'put API - controlador'
+    });
+}
 
 
+const usuariosPost = (req, res = response ) => {
+    res.status(201).json({
+        msg: 'post API - controlador '
+    });
+}
+
+const usuariosPath = (req, res = response) => {
+    res.json({
+        msg: 'get Path - controlador'
+    });
+}
+
+const usuariosDelete = (req, res) => {
+    res.json({
+        msg: 'delete API - controlador'
+    });
+}
+
+//mando un objeto a ser varias funciones las que se tiene que exportar
 module.exports = {
-    usuariosGet
+    usuariosGet,
+    usuariosPut,
+    usuariosPost,
+    usuariosPath,
+    usuariosDelete
+
 }
