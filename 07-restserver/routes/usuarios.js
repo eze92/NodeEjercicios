@@ -7,10 +7,13 @@ const router = Router();
 //endpoints
 // leer read 
 router.get('/', usuariosGet);
+
 //actualizar update 
-router.put('/', usuariosPut);
+router.put('/:id', usuariosPut);
+
 // crear nuevo recurso create
 router.post('/', usuariosPost);
+
 //borrar pero no necesariamente de la db , delete
 router.delete('/', usuariosDelete);
 
