@@ -1,8 +1,8 @@
 //se agrega para al hacer res. me salga las sugerencias
-const { response} = require ('express');
- 
+const { response } = require('express');
+
 //se agrega el igual a response por lo escrito arriba aunque quede redundante
- const usuariosGet = (req, res = response) => {
+const usuariosGet = (req, res = response) => {
     res.json({
         msg: 'get API - controlador'
     });
@@ -15,9 +15,14 @@ const usuariosPut = (req, res = response) => {
 }
 
 
-const usuariosPost = (req, res = response ) => {
+const usuariosPost = (req, res = response) => {
+
+    const {nombre, edad} = req.body;
+
     res.status(201).json({
-        msg: 'post API - controlador '
+        msg: 'post API - controlador ',
+        nombre,
+        edad
     });
 }
 
