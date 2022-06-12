@@ -3,7 +3,8 @@ const { response,request } = require('express');
 
 //se agrega el igual a response por lo escrito arriba aunque quede redundante
 const usuariosGet = (req = request, res = response) => {
-    
+    //con query desectructuro lo que mando en la url /api/resource?p1=v1&p2=v2
+    // con body desectructuro parte del cuerpo de jsom
     const {q,nombre = 'No name',apikey,page= 1, limit} = req.query;
 
     res.json({

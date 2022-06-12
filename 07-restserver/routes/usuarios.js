@@ -9,6 +9,7 @@ const router = Router();
 router.get('/', usuariosGet);
 
 //actualizar update 
+// si le agrego el id tengo que escribir uno en la url
 router.put('/:id', usuariosPut);
 
 // crear nuevo recurso create
