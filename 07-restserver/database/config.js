@@ -4,11 +4,13 @@ const mongoose = require('mongoose');
 const dbConnection = async() =>{
 
     try{
+        // uso el await para que espere hasta que se haga la conexion
         await mongoose.connect(process.env.MONGO_DB_CNN,{
             useNewUrlParser: true,
             useUnifiedTopology: false,
-           /* useCreateIndex: false,
-            useFindAndModify: false*/
+           /* deprecados 
+           useCreateIndex: false,
+           useFindAndModify: false*/
         });
         console.log('Base de datos online');
     }
