@@ -1,6 +1,9 @@
 //se agrega para al hacer res. me salga las sugerencias
 const { response,request } = require('express');
 
+//estandar de poner la U en mayuscula para luego crear instancias del modelo
+const Usuario = require('../models/usuario');
+
 //se agrega el igual a response por lo escrito arriba aunque quede redundante
 const usuariosGet = (req = request, res = response) => {
     //con query desectructuro lo que mando en la url /api/resource?p1=v1&p2=v2
@@ -28,14 +31,16 @@ const usuariosPut = (req, res = response) => {
 }
 
 
-const usuariosPost = (req, res = response) => {
+const usuariosPost = async(req, res = response) => {
 
-    const {nombre, edad} = req.body;
+    const body = req.body;
+    const usuario = new Usuario(body);
+
+    await usuario.save();
 
     res.status(201).json({
         msg: 'post API - controlador ',
-        nombre,
-        edad
+        usuario
     });
 }
 

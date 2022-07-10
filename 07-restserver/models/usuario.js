@@ -32,4 +32,5 @@ const UsuarioSchema = Schema({
     }
 });
 
-module.exports = model ( 'Usuario','UsuarioSchema');
+//Usuario pase a ser el nombre del modelo
+module.exports = model('Usuario',UsuarioSchema);
