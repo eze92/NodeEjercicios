@@ -1,5 +1,6 @@
 //se agrega para al hacer res. me salga las sugerencias
 const { response,request } = require('express');
+const bcryptjs = require('bcryptjs');
 
 //estandar de poner la U en mayuscula para luego crear instancias del modelo
 const Usuario = require('../models/usuario');
@@ -33,8 +34,18 @@ const usuariosPut = (req, res = response) => {
 
 const usuariosPost = async(req, res = response) => {
 
-    const body = req.body;
-    const usuario = new Usuario(body);
+    const {nombre,correo,password,rol} = req.body;
+    const usuario = new Usuario({nombre,correo,password,rol});
+
+    //Verificar si el correo existe
+
+    //Encriptar la contraseña
+
+    const salt = bcryptjs.genSaltSync();
+    usuario.password = bcryptjs.hashSync( password,salt);
+
+    //Guardar en DB
+
 
     await usuario.save();
 
