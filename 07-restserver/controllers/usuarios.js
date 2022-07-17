@@ -1,6 +1,7 @@
 //se agrega para al hacer res. me salga las sugerencias
 const { response,request } = require('express');
 const bcryptjs = require('bcryptjs');
+const {validationResult} = require('express-validator');
 
 //estandar de poner la U en mayuscula para luego crear instancias del modelo
 const Usuario = require('../models/usuario');
@@ -34,10 +35,22 @@ const usuariosPut = (req, res = response) => {
 
 const usuariosPost = async(req, res = response) => {
 
+    const errors = validationResult(req);
+    if (!errors.isEmpty()){
+        return res.status(400).json(errors);
+    }
+
     const {nombre,correo,password,rol} = req.body;
     const usuario = new Usuario({nombre,correo,password,rol});
 
     //Verificar si el correo existe
+
+    const existeEmail = await Usuario.findOne({correo});
+    if(existeEmail){
+        return res.status(400).json({
+            msg: 'Ese correo ya esta registrado'
+        });
+    }
 
     //Encriptar la contraseña
 

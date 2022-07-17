@@ -11,6 +11,7 @@ Ejecutar ```npm install``` para reconstruir los modulos
 + dotenv : Para utilizar archivos como variable de entorno https://www.npmjs.com/package/dotenv
 + No usado pero igual sirve , para realizar prueba de servidor de manera local https://www.npmjs.com/package/http-server
 + bcryptjs : Para encriptar password
++ express-validator : Para agregar validaciones de correo 
 
 
 Sitio Oficial de express 

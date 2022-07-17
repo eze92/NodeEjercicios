@@ -1,5 +1,6 @@
 //desectructuro para separar las rutas del server.js
 const { Router } = require('express');
+const { check } = require('express-validator');
 const { usuariosGet, usuariosPut, usuariosPost, usuariosDelete, usuariosPath } = require('../controllers/usuarios');
 
 const router = Router();
@@ -13,7 +14,11 @@ router.get('/', usuariosGet);
 router.put('/:id', usuariosPut);
 
 // crear nuevo recurso create
-router.post('/', usuariosPost);
+router.post('/', [
+    //se agrega validacion de correo por express-validator
+    check('correo', 'El correo no es valido').isEmail(),
+],
+usuariosPost);
 
 //borrar pero no necesariamente de la db , delete
 router.delete('/', usuariosDelete);
