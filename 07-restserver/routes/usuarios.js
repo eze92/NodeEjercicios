@@ -1,8 +1,10 @@
 //desectructuro para separar las rutas del server.js
 const { Router } = require('express');
 const { check } = require('express-validator');
-const {validarCampos} = require('../middlewares/validar-campos')
+const {validarCampos} = require('../middlewares/validar-campos');
+const Role = require('../models/role');
 const { usuariosGet, usuariosPut, usuariosPost, usuariosDelete, usuariosPath } = require('../controllers/usuarios');
+
 
 const router = Router();
 
@@ -20,7 +22,15 @@ router.post('/', [
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
     check('password', 'El password es obligatorio y mas de 6 caracteres').isLength({min: 6}),
     check('correo', 'El correo no es valido').isEmail(),
-    check('rol', 'No es un rol valido').isIn(['ADMIN_ROLE','USER_ROLE']),  // el rol debe existir en el arreglo
+    //check('rol', 'No es un rol valido').isIn(['ADMIN_ROLE','USER_ROLE']),  // el rol debe existir en el arreglo
+   
+    //validacion de rol escrito contra la  grabada contra la db
+    check('rol').custom(async(rol = '') =>{
+        const existeRol = await Role.findOne({rol});
+        if( !existeRol){
+            throw new Error(`El rol ${rol} no esta registrado en la base de datos`)
+        }
+    }),
     validarCampos
 ],
 usuariosPost);
