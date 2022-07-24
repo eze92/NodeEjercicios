@@ -53,12 +53,12 @@ const usuariosPost = async(req, res = response) => {
     usuario.password = bcryptjs.hashSync( password,salt);
 
     //Guardar en DB
-
-
     await usuario.save();
 
-    res.status(201).json({
-        msg: 'post API - controlador ',
+    //devuelve lo que se guardo
+    //res.status(201).json({
+    res.json({
+        //msg: 'post API - controlador ',
         usuario
     });
 }

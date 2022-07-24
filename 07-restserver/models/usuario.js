@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 
+//modelo a grabar en db
 const UsuarioSchema = Schema({
     nombre:{
         type: String,
@@ -32,5 +33,12 @@ const UsuarioSchema = Schema({
     }
 });
 
-//Usuario pase a ser el nombre del modelo
+//Para sacar el password y la version mostrada en postman - pantalla
+UsuarioSchema.methods.toJSON = function(){
+    //los valores que saco son los dos primeros argumentos y los almaceno en el tercero
+    const{ __v, password, ...usuario  } = this.toObject();
+    return usuario;
+}
+
+//Usuario pasa a ser el nombre del modelo
 module.exports = model('Usuario',UsuarioSchema);
