@@ -14,11 +14,21 @@ const usuariosGet = async (req = request, res = response) => {
 
     //leer usuarios
     const{limite = 5, desde = 0} = req.query;
-    const usuarios = await Usuario.find()
+   /* const usuarios = await Usuario.find()
         .skip(desde) //desde  ; si no funciona casteo con Number
-        .limit(limite);
-
+        .limit(limite); */
+    const query = { estado: true}; //filtro de registro en db
+    
+    //desectructuro el arreglo
+    const [total, usuarios] = await Promise.all([
+        Usuario.countDocuments(query),
+        Usuario.find(query)
+            .skip(desde) 
+            .limit(limite)
+    ]);
+    
     res.json({
+        total,
         usuarios
     });
 }
