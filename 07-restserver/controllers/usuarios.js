@@ -7,29 +7,30 @@ const bcryptjs = require('bcryptjs');
 const Usuario = require('../models/usuario');
 
 //se agrega el igual a response por lo escrito arriba aunque quede redundante
-const usuariosGet = (req = request, res = response) => {
+const usuariosGet = async (req = request, res = response) => {
     //con query desectructuro lo que mando en la url /api/resource?p1=v1&p2=v2
     // con body desectructuro parte del cuerpo de jsom
-    const { q, nombre = 'No name', apikey, page = 1, limit } = req.query;
+    // const { q, nombre = 'No name', apikey, page = 1, limit } = req.query;
+
+    //leer usuarios
+    const{limite = 5, desde = 0} = req.query;
+    const usuarios = await Usuario.find()
+        .skip(desde) //desde  ; si no funciona casteo con Number
+        .limit(limite);
 
     res.json({
-        msg: 'get API - controlador',
-        q,
-        nombre,
-        apikey,
-        page,
-        limit
+        usuarios
     });
 }
 
-const usuariosPut = async(req, res = response) => {
+const usuariosPut = async (req, res = response) => {
 
-    const {id} = req.params;
+    const { id } = req.params;
     //argumentos a sacar para que no rompa y no actualice
-    const {_id,password,google,correo,...resto} = req.body;
+    const { _id, password, google, correo, ...resto } = req.body;
 
     // validar contra la base de datos
-    if( password){
+    if (password) {
         //Encriptar la contraseña
         const salt = bcryptjs.genSaltSync();
         resto.password = bcryptjs.hashSync(password, salt);
@@ -37,13 +38,10 @@ const usuariosPut = async(req, res = response) => {
     //actualizar usuario
     //busca por el id y actualiza
     const usuario = await Usuario.findByIdAndUpdate(id, resto);
- 
 
 
-    res.json({
-        msg: 'put API - controlador',
-        usuario
-    });
+
+    res.json({ usuario });
 }
 
 
