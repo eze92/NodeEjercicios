@@ -5,6 +5,7 @@ const dbConnection = async() =>{
 
     try{
         // uso el await para que espere hasta que se haga la conexion
+        // creo previamente variable de entorno de conexion
         await mongoose.connect(process.env.MONGO_DB_CNN,{
             useNewUrlParser: true,
             useUnifiedTopology: false,

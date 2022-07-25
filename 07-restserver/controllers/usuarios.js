@@ -22,13 +22,27 @@ const usuariosGet = (req = request, res = response) => {
     });
 }
 
-const usuariosPut = (req, res = response) => {
+const usuariosPut = async(req, res = response) => {
 
-    const id = req.params.id;
+    const {id} = req.params;
+    //argumentos a sacar para que no rompa y no actualice
+    const {password,google,correo,...resto} = req.body;
+
+    // validar contra la base de datos
+    if( password){
+        //Encriptar la contraseña
+        const salt = bcryptjs.genSaltSync();
+        resto.password = bcryptjs.hashSync(password, salt);
+    }
+    //actualizar usuario
+    //busca por el id y actualiza
+    const usuario = await Usuario.findByIdAndUpdate(id, resto);
+ 
+
 
     res.json({
         msg: 'put API - controlador',
-        id
+        usuario
     });
 }
 
@@ -40,12 +54,12 @@ const usuariosPost = async (req, res = response) => {
 
     //Verificar si el correo existe
 
- /*   const existeEmail = await Usuario.findOne({ correo });
-    if (existeEmail) {
-        return res.status(400).json({
-            msg: 'Ese correo ya esta registrado'
-        });
-    }*/
+    /*   const existeEmail = await Usuario.findOne({ correo });
+       if (existeEmail) {
+           return res.status(400).json({
+               msg: 'Ese correo ya esta registrado'
+           });
+       }*/
 
     //Encriptar la contraseña
 
