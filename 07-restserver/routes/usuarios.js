@@ -41,7 +41,7 @@ router.post('/', [
     usuariosPost);
 
 //borrar pero no necesariamente de la db , delete
-router.delete('/', usuariosDelete);
+router.delete('/:id', usuariosDelete);
 
 //para actualizacion parcial
 router.patch('/', usuariosPath);

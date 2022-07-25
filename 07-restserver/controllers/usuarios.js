@@ -1,4 +1,4 @@
-//se agrega para al hacer res. me salga las sugerencias
+//se agrega response para al hacer res. me salga las sugerencias
 const { response, request } = require('express');
 const bcryptjs = require('bcryptjs');
 
@@ -91,9 +91,10 @@ const usuariosPath = (req, res = response) => {
     });
 }
 
-const usuariosDelete = (req, res) => {
+const usuariosDelete = (req, res = response) => {
+    const {id} = req.params;
     res.json({
-        msg: 'delete API - controlador'
+      id
     });
 }
 
