@@ -26,7 +26,7 @@ const usuariosPut = async(req, res = response) => {
 
     const {id} = req.params;
     //argumentos a sacar para que no rompa y no actualice
-    const {password,google,correo,...resto} = req.body;
+    const {_id,password,google,correo,...resto} = req.body;
 
     // validar contra la base de datos
     if( password){

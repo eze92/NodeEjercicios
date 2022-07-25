@@ -2,7 +2,7 @@ const {validationResult} = require('express-validator');
 
 //middleware personalizado para comprobar que no haya errores
 //se agrega 3er parametro next para que pase a proximo 
-//middleware en caso de haber
+//middleware en caso de haber un error 
 const validarCampos = (req,res , next) =>{
 
     const errors = validationResult(req);
