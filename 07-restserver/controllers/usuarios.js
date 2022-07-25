@@ -93,8 +93,15 @@ const usuariosPath = (req, res = response) => {
 
 const usuariosDelete = (req, res = response) => {
     const {id} = req.params;
+
+    //Eliminacion Fisica
+    // const usuario = await Usuario.findByIdAndDelete( id);
+
+    //Cambio el estado sin eliminar de la db pero para el usuario esta eliminado
+    const usuario = await Usuario.findByIdAndUpdate(id , {estado: false })
+
     res.json({
-      id
+        usuario
     });
 }
 
