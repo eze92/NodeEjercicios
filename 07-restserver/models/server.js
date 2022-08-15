@@ -1,5 +1,5 @@
 const express = require('express')
-const cors = require ('cors');
+const cors = require('cors');
 const { dbConnection } = require('../database/config');
 
 class Server {
@@ -19,11 +19,11 @@ class Server {
         this.routes();
     }
 
-    async conectarDb(){
+    async conectarDb() {
         await dbConnection();
     }
 
-    middlewares(){
+    middlewares() {
         // "use" palabra clave para decir que es un middlewares
 
         //CORS
@@ -32,14 +32,14 @@ class Server {
         //Lectura y Paseo del body
 
         this.app.use(express.json());
-    
+
         //Directorio Publico
         this.app.use(express.static('public'));
     }
 
     routes() {
-        this.app.use( this.autPath,require('../routes/auth'));
-        this.app.use(this.usuariosPath,require('../routes/usuarios'));
+        this.app.use(this.autPath, require('../routes/auth'));
+        this.app.use(this.usuariosPath, require('../routes/usuarios'));
 
     }
 
