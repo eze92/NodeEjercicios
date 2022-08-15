@@ -91,7 +91,7 @@ const usuariosPath = (req, res = response) => {
     });
 }
 
-const usuariosDelete = (req, res = response) => {
+const usuariosDelete = async(req, res = response) => {
     const {id} = req.params;
 
     //Eliminacion Fisica
