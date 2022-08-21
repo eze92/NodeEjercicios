@@ -14,6 +14,7 @@ Ejecutar ```npm install``` para reconstruir los modulos
 que enriquecen la funcionalidad de la base de datos. https://mongoosejs.com/
 + bcryptjs : Para encriptar password
 + express-validator : Para agregar validaciones de correo 
++ jsonwebtoken : Para generar los token temporales https://www.npmjs.com/package/jsonwebtoken
 
 
 Sitio Oficial de express 
