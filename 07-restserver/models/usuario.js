@@ -35,8 +35,10 @@ const UsuarioSchema = Schema({
 
 //Para sacar el password y la version mostrada en postman - pantalla
 UsuarioSchema.methods.toJSON = function(){
-    //los valores que saco son los dos primeros argumentos y los almaceno en el tercero
-    const{ __v, password, ...usuario  } = this.toObject();
+    //los valores que saco son los tres primeros argumentos y los almaceno en el tercero
+    const{ __v, password, _id, ...usuario  } = this.toObject();
+   //cambio el uid mostrado en postman por _id
+    usuario.uid = _id;
     return usuario;
 }
 
