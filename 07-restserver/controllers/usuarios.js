@@ -13,20 +13,20 @@ const usuariosGet = async (req = request, res = response) => {
     // const { q, nombre = 'No name', apikey, page = 1, limit } = req.query;
 
     //leer usuarios
-    const{limite = 5, desde = 0} = req.query;
-   /* const usuarios = await Usuario.find()
-        .skip(desde) //desde  ; si no funciona casteo con Number
-        .limit(limite); */
-    const query = { estado: true}; //filtro de registro en db
-    
+    const { limite = 5, desde = 0 } = req.query;
+    /* const usuarios = await Usuario.find()
+         .skip(desde) //desde  ; si no funciona casteo con Number
+         .limit(limite); */
+    const query = { estado: true }; //filtro de registro en db
+
     //desectructuro el arreglo
     const [total, usuarios] = await Promise.all([
         Usuario.countDocuments(query),
         Usuario.find(query)
-            .skip(desde) 
+            .skip(desde)
             .limit(limite)
     ]);
-    
+
     res.json({
         total,
         usuarios
@@ -91,17 +91,19 @@ const usuariosPath = (req, res = response) => {
     });
 }
 
-const usuariosDelete = async(req, res = response) => {
-    const {id} = req.params;
+const usuariosDelete = async (req, res = response) => {
+    const { id } = req.params;
 
-    //Eliminacion Fisica
+    // Eliminacion Fisica
     // const usuario = await Usuario.findByIdAndDelete( id);
 
     //Cambio el estado sin eliminar de la db pero para el usuario esta eliminado
-    const usuario = await Usuario.findByIdAndUpdate(id , {estado: false })
+    const usuario = await Usuario.findByIdAndUpdate(id, { estado: false })
+
+    //const usuarioAutenticado = req.usuario;
 
     res.json({
-        usuario
+        usuario//,usuarioAutenticado
     });
 }
 
