@@ -1,6 +1,6 @@
 const { request, response } = require("express")
-
-const esAdminRole = (req = request, res = res = response, next) => {
+//verifica que sea administrador el usuario para poder borrar
+const esAdminRole = (req = request, res = response, next) => {
 
     if (!req.usuario) {
         return res.status(500).json({
@@ -15,9 +15,28 @@ const esAdminRole = (req = request, res = res = response, next) => {
             msg: `${nombre} no es administrador - No puede hacer esto`
         });
     }
+    next();
 
 }
 
+const tieneRole = (...roles) => {
+    return (req = request, res = response, next) => {
+
+        if (!req.usuario) {
+            return res.status(500).json({
+                msg: 'Se quiere verificar el role sin validar el token primero'
+            });
+        }
+        if (!roles.includes(req.usuario.rol)) {
+            return res.status(401).json({
+                msg: `El servicio requiere uno de estos roles ${roles}`
+            });
+        }
+        next();
+    }
+}
+
 module.exports = {
-    esAdminRole
+    esAdminRole,
+    tieneRole
 }
