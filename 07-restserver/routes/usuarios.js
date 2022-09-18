@@ -1,8 +1,12 @@
 //desectructuro para separar las rutas del server.js
 const { Router } = require('express');
 const { check } = require('express-validator');
+
 const { validarCampos } = require('../middlewares/validar-campos');
 const { validarJWT } = require('../middlewares/validar-jwt');
+const { esAdminRole } = require('../middlewares/validar-roles');
+
+
 const { esRoleValido, emailExiste, existeUsuarioPorId } = require('../helpers/db-validators');
 const Role = require('../models/role');
 const { usuariosGet, usuariosPut, usuariosPost, usuariosDelete, usuariosPath } = require('../controllers/usuarios');
@@ -43,8 +47,9 @@ router.post('/', [
     usuariosPost);
 
 //borrar pero no necesariamente de la db , delete
-router.delete('/:id',[
+router.delete('/:id',[        
     validarJWT,
+    esAdminRole, 
     check('id', 'No es un ID valido').isMongoId(),
     check('id').custom(existeUsuarioPorId),
     validarCampos
